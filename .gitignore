@@ -12,3 +12,8 @@ desktop.ini
 
 # Logs
 *.log
+
+*.sh
+CUSTOM_DOMAIN_SETUP.md
+DEPLOYMENT.md
+SETUP_ORG_REPO.md
