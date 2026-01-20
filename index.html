@@ -12,22 +12,36 @@
         }
 
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            --warning-gradient: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-            --danger-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
-            --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.2);
+            /* Agricultural Workers Union Color Palette */
+            --primary-green: #2d5016;
+            --primary-green-light: #4a7c2a;
+            --primary-green-dark: #1a3009;
+            --earth-brown: #8b6914;
+            --earth-tan: #d4a574;
+            --union-red: #c41e3a;
+            --union-red-light: #e63950;
+            --field-green: #6b8e23;
+            --field-green-light: #9acd32;
+            --soil-brown: #8b7355;
+            
+            --primary-gradient: linear-gradient(135deg, #2d5016 0%, #4a7c2a 50%, #6b8e23 100%);
+            --secondary-gradient: linear-gradient(135deg, #c41e3a 0%, #e63950 100%);
+            --earth-gradient: linear-gradient(135deg, #8b6914 0%, #d4a574 100%);
+            --field-gradient: linear-gradient(135deg, #4a7c2a 0%, #9acd32 100%);
+            --warning-gradient: linear-gradient(135deg, #d4a574 0%, #f4a460 100%);
+            --success-gradient: linear-gradient(135deg, #2d5016 0%, #6b8e23 100%);
+            
+            --shadow-sm: 0 2px 8px rgba(45, 80, 22, 0.15);
+            --shadow-md: 0 4px 16px rgba(45, 80, 22, 0.2);
+            --shadow-lg: 0 8px 32px rgba(45, 80, 22, 0.25);
+            --shadow-xl: 0 12px 48px rgba(45, 80, 22, 0.3);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.7;
             color: #2d3748;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 30%, #6b8e23 60%, #8b6914 100%);
             background-attachment: fixed;
             min-height: 100vh;
             padding: 20px 0;
@@ -90,7 +104,7 @@
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 700;
-            box-shadow: 0 8px 24px rgba(245, 87, 108, 0.4);
+            box-shadow: 0 8px 24px rgba(196, 30, 58, 0.4);
             position: relative;
             overflow: hidden;
         }
@@ -115,7 +129,7 @@
 
         .support-btn:hover {
             transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 32px rgba(245, 87, 108, 0.5);
+            box-shadow: 0 12px 32px rgba(196, 30, 58, 0.5);
         }
 
         .support-btn:active {
@@ -163,9 +177,9 @@
         }
 
         .highlight {
-            background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+            background: linear-gradient(135deg, #f5f5dc 0%, #e8e8d8 100%);
             border-left: 5px solid;
-            border-image: var(--warning-gradient) 1;
+            border-image: var(--field-gradient) 1;
             padding: 25px;
             margin: 25px 0;
             border-radius: 12px;
@@ -182,7 +196,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: var(--warning-gradient);
+            background: var(--field-gradient);
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
@@ -197,7 +211,7 @@
         }
 
         .highlight h3 {
-            color: #856404;
+            color: var(--primary-green-dark);
             margin-bottom: 15px;
             font-size: 1.4em;
             font-weight: 700;
@@ -219,13 +233,13 @@
             content: '▸';
             position: absolute;
             left: 0;
-            color: #f6a500;
+            color: var(--field-green);
             font-weight: bold;
         }
 
         .highlight p {
             line-height: 1.8;
-            color: #5a4a00;
+            color: var(--primary-green-dark);
         }
 
         .language-toggle {
@@ -243,7 +257,7 @@
             padding: 12px 24px;
             border: 2px solid transparent;
             background: transparent;
-            color: #667eea;
+            color: var(--primary-green);
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -252,7 +266,7 @@
         }
 
         .lang-btn:hover {
-            background: rgba(102, 126, 234, 0.1);
+            background: rgba(45, 80, 22, 0.1);
         }
 
         .lang-btn.active {
@@ -364,8 +378,8 @@
 
         .form-group input:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 4px rgba(45, 80, 22, 0.1);
             transform: translateY(-2px);
         }
 
@@ -384,13 +398,13 @@
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 700;
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 20px rgba(45, 80, 22, 0.4);
             margin-top: 10px;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(102, 126, 234, 0.5);
+            box-shadow: 0 8px 28px rgba(45, 80, 22, 0.5);
         }
 
         .submit-btn:active {
