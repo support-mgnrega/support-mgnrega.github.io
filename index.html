@@ -856,66 +856,32 @@
     </div>
 
     <script>
-        // Subject lines from YAML
-        const subjectLines = {
-            tamil: [
-                "மகாத்மா காந்தி ஊரக வேலைவாய்ப்பு உறுதிச் சட்டத்தை காப்பாற்றுங்கள்",
-                "விபி ஜிராம்ஜி திட்டத்தை உடனடியாக திரும்பப் பெறுங்கள்",
-                "கிராமப்புற உழைப்பாளர்களின் உரிமைகளை பாதுகாக்க வேண்டும்",
-                "MNREGA சட்டம் அவசியம் - விபி ஜிராம்ஜி தேவையற்றது",
-                "ஊரக வேலை உறுதிச் சட்டத்தை அழிக்க வேண்டாம்",
-                "கிராமப்புற தொழிலாளர்களுக்கு நீதி வேண்டும்",
-                "MNREGA சட்டத்தை மீட்டெடுக்க வேண்டும்",
-                "விவசாயத் தொழிலாளர்களின் வாழ்வாதாரத்தை காப்பாற்றுங்கள்",
-                "வேலை உறுதிச் சட்டம் கிராம இந்தியாவின் உயிர்நாடி",
-                "மகாத்மா காந்தியின் பெயரை அழிக்காதீர்கள்",
-                "கூட்டாட்சி கோட்பாட்டை மதியுங்கள் - MNREGA-வை காப்பாற்றுங்கள்",
-                "ஊரக வேலைவாய்ப்பு உரிமையை பறிக்காதீர்கள்",
-                "விபி ஜிராம்ஜி திட்டம் மக்கள் விரோதமானது",
-                "குறைந்தபட்சக் கூலி உரிமையை பாதுகாக்க வேண்டும்",
-                "MNREGA-வை வலுப்படுத்துங்கள் - அழிக்காதீர்கள்",
-                "கிராமப்புற ஏழைகளின் குரலைக் கேளுங்கள்",
-                "வேலை உறுதி சட்டம் இல்லாமல் கிராமங்கள் இல்லை",
-                "மோடி அரசின் மக்கள் விரோத திட்டத்தை எதிர்க்கிறோம்",
-                "நிலமில்லா விவசாயிகளின் எதிர்காலத்தை காப்பாற்றுங்கள்",
-                "MNREGA அவசியம் - இது விவசாய தொழிலாளர்களின் உரிமை"
-            ],
-            english: [
-                "Save MGNREGA - Withdraw VB-GRAM G Immediately",
-                "Protect Rural Workers' Rights - Restore MGNREGA",
-                "MGNREGA is Essential for Rural India's Survival",
-                "Stop Dismantling the Rural Employment Guarantee Act",
-                "VB-GRAM G Scheme is Anti-People and Must Go",
-                "Justice for Rural Workers - Bring Back MGNREGA",
-                "Demand to Restore Mahatma Gandhi Employment Guarantee Act",
-                "Protect Livelihoods of Agricultural Labourers",
-                "Rural Employment Guarantee is a Fundamental Right",
-                "Don't Erase Mahatma Gandhi's Legacy from Employment Law",
-                "Respect Federalism - Save MGNREGA",
-                "Employment Guarantee Cannot Be Compromised",
-                "VB-GRAM G Will Devastate Rural Workers",
-                "Protect Minimum Wage Rights Under MGNREGA",
-                "Strengthen MGNREGA - Don't Destroy It",
-                "Listen to the Voices of Rural Poor",
-                "No Rural Development Without Employment Guarantee",
-                "Oppose Modi Government's Anti-Worker Scheme",
-                "Secure the Future of Landless Farmers",
-                "MGNREGA is a Human Right - Not a Privilege"
-            ]
-        };
-
-        function getCurrentLanguage() {
-            // Check which language content is currently active
-            if (document.getElementById('tamil-content').classList.contains('active')) {
-                return 'tamil';
-            }
-            return 'english';
-        }
+        // Subject lines (English only)
+        const subjectLines = [
+            "Save MGNREGA - Withdraw VB-GRAM G Immediately",
+            "Protect Rural Workers' Rights - Restore MGNREGA",
+            "MGNREGA is Essential for Rural India's Survival",
+            "Stop Dismantling the Rural Employment Guarantee Act",
+            "VB-GRAM G Scheme is Anti-People and Must Go",
+            "Justice for Rural Workers - Bring Back MGNREGA",
+            "Demand to Restore Mahatma Gandhi Employment Guarantee Act",
+            "Protect Livelihoods of Agricultural Labourers",
+            "Rural Employment Guarantee is a Fundamental Right",
+            "Don't Erase Mahatma Gandhi's Legacy from Employment Law",
+            "Respect Federalism - Save MGNREGA",
+            "Employment Guarantee Cannot Be Compromised",
+            "VB-GRAM G Will Devastate Rural Workers",
+            "Protect Minimum Wage Rights Under MGNREGA",
+            "Strengthen MGNREGA - Don't Destroy It",
+            "Listen to the Voices of Rural Poor",
+            "No Rural Development Without Employment Guarantee",
+            "Oppose Modi Government's Anti-Worker Scheme",
+            "Secure the Future of Landless Farmers",
+            "MGNREGA is a Human Right - Not a Privilege"
+        ];
 
         function getRandomSubject(name, age, district) {
-            const lang = getCurrentLanguage();
-            const subjects = subjectLines[lang];
-            const randomSubject = subjects[Math.floor(Math.random() * subjects.length)];
+            const randomSubject = subjectLines[Math.floor(Math.random() * subjectLines.length)];
             
             // Append user details to make each subject unique
             // Format: "{Subject Line} - {Name}({age}) - {District}"
@@ -984,7 +950,8 @@
             const subjectText = getRandomSubject(name, age, district);
             const subject = encodeURIComponent(subjectText);
             
-            const emailBody = encodeURIComponent(`Respected Madam,
+            // Email body in English only to avoid URL length issues
+            const emailBodyText = `Respected Madam,
 
 Her Excellency Smt. Droupadi Murmu
 President of India
@@ -994,8 +961,6 @@ New Delhi
 Subject: Draft Resolution to demand restore and enrich MGNREGA
 
 Dear Madam President,
-
-ENGLISH:
 
 We, the working people of India, strongly oppose the decision to dismantle the Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA). In its place, the Modi government has introduced a scheme called VB-GRAM G, which contains several deeply harmful provisions.
 
@@ -1024,41 +989,14 @@ Therefore, we demand that the Mahatma Gandhi National Rural Employment Guarantee
 
 We urge the Government of India to immediately withdraw the VB-GRAM G scheme and protect and expand MGNREGA in the interest of India's rural workers.
 
-
-தமிழ் (TAMIL):
-
-இந்திய நாட்டின் உழைப்பாளி மக்களாகிய நாங்கள் மகாத்மா காந்தி ஊரக வேலைவாய்ப்பு உறுதி சட்டத்தை அழிக்கும் முடிவை முற்றாக எதிர்க்கிறோம். அதற்கு பதிலாக, மோடி அரசாங்கம் நிறைவேற்றியுள்ள விபி ஜிராம்ஜி என்ற திட்டம் பல்வேறு மோசமான அம்சங்களை கொண்டுள்ளது.
-
-● தேவைக்கு ஏற்ப வேலைவாய்ப்பை உருவாக்கும் சட்டம் அகற்றப்பட்டு, அரசே கொடுத்தால் மட்டும் வேலை செய்யலாம் என்ற திட்டமாக மாற்றுவது மக்களுக்கு எதிரான முடிவாகும். இந்திய கிராமங்களில் வாழும் உழைப்பாளிகளின் தேவைக்கு ஏற்ப ஊரக வேலை வாய்ப்பு உருவாக்கப்பட வேண்டும். அதற்கேற்ப நிதியை ஒன்றிய அரசு உயர்த்த வேண்டும். ஆனால், முன்கூட்டியே தீர்மானித்த நிதி வரம்பிற்குள் மட்டுமே வேலை கொடுப்பது, அதிகாரத்தை ஒன்றியத்தில் குவித்துக் கொள்வது ஏற்க முடியாத ஒன்றாகும்.
-
-● புதிய விபி ஜிராம்ஜி திட்டத்தின்படி, ஒன்றிய அரசு தீர்மானித்த நிதி செலவாகிவிட்டால், வேலை உறுதிச் சட்டத்தால் வழங்கப்பட்ட உரிமை மறுக்கப்படும் நிலைமை மிக மிக பாதகமானது.
-
-● ஊரக வேலை உறுதிக்காக ஒன்றிய அரசே முழுமையாக பொருப்பேற்க வேண்டும். திட்டச் செலவில் மாநில அரசுகள் 40% ஏற்க வேண்டும் என்ற புதிய சட்டம், ஏற்கனவே நிதிச் சுமையில் உள்ள மாநிலங்களை மேலும் பலவீனமாக்கும். இதனாலும் ஊரக வேலைவாய்ப்புகள் குறைந்துவிடும்.
-
-● விவசாய சாகுபடி காலத்தில் வேலை உறுதி செய்வதில் இருந்து அரசு விலகுவது - 60 நாட்கள் திட்டம் கட்டாயமாக நிறுத்திவைக்கும் விதிமுறையானது - நிலமில்லாத விவசாயத் தொழிலாளர்களைக் குறைவான கூலிக்கு வேலைசெய்யும் கட்டாய நிலைமைக்குத் தள்ளிவிடும். வறட்சி உள்ளிட்ட எதிர்பாராத பாதிப்புகளின் போது அவர்களை சிறு நிவாரணத்திற்கு கூட வழியற்றவர்களாக்கிவிடும்.
-
-● குறைந்தபட்சக் கூலி தீர்மானிப்பது மகாத்மா காந்தி தேசிய ஊரக வேலைவாய்ப்புச் சட்டத்தால் கிடைத்துவந்த பாதுகாப்பு ஆகும். அதனை நீக்குவதன் மூலம் தொழிலாளர்களின் சட்டப்பூர்வ குறைந்தபட்சக் கூலி உரிமையையும், கூட்டுப்பேர உரிமையையும் மோடி அரசு சிதைக்கிறது.
-
-● மத்திய அரசின் கைகளில் அதிகாரம் அனைத்தும் குவிக்கப்படுவது கூட்டாட்சிக் கோட்பாட்டிற்கு எதிரானதாகும்.
-
-● மேலும், இந்த திட்டத்தில் மகாத்மா காந்தியின் பெயரை நீக்குவது, இந்த சட்டம் அமலாக்கப்பட்ட வரலாற்று பாரம்பரியத்தை அழிப்பதுடன். விடுதலைப் போராட்டத்தின் வரலாற்று மரபினையும் அவமதிக்கிறது.
-
-எனவே நாங்கள், மகாத்மா காந்தி, ஊரக வேலைவாய்ப்பு உறுதிச் சட்டத்தை தொடர வேண்டும் என்று கோருகிறோம். மேலும், இந்த சட்டத்தை விரிவாக்கி...
-
-● வேலைநாட்களை 200 நாட்களாக அதிகரிக்க வேண்டும்
-● நாளொன்றிற்கு குறைந்தபட்சக் கூலியை 700 ரூபாயாக நிர்ணயிக்க வேண்டும்
-● தினசரி கூலியைக் கால தாமதமின்றி வழங்க வேண்டும்
-● இந்த திட்ட செயல்பாட்டை மேற்பார்வையிடவும், திட்டமிடவும், கிராம சபைக்கு அதிகாரம் வழங்க வேண்டும்
-● மகாத்மா காந்தி ஊரக வேலைவாய்ப்பு உறுதிச் சட்டத்தை விவசாயம் மற்றும் விவசாயம் சார்ந்த துறையோடு ஒருங்கிணைக்க வேண்டும்
-● விவசாய நெருக்கடி, கிராமப்புற கடன்கள், பிழைப்புக்கான வாய்ப்பு தேடி கட்டாயத்தின் பேரில் குடிபெயர்தல், விவசாய தொழிலாளர்களிடையே அதிகரிக்கும் தற்கொலை ஆகிய பிரச்சனைகளுக்கு தீர்வு கொடுப்பதாக செயலாக்க வேண்டும் என கோருகிறோம்.
-
-
 Yours sincerely,
 
 ${name}
 Age: ${age}${village ? '\nVillage: ' + village : ''}
 District: ${district}
-Date: ${new Date().toLocaleDateString()}`);
+Date: ${new Date().toLocaleDateString()}`;
+            
+            const emailBody = encodeURIComponent(emailBodyText);
 
             const webGmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=presidentofindia@rb.nic.in&bcc=aiawutn@gmail.com&su=${subject}&body=${emailBody}`;
             
