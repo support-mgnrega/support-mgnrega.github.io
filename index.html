@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support MGNREGA - Restore and Enrich</title>
+    <title>Support MGNREGA - Restore and Enrich | All India Agricultural Workers' Union</title>
+    
+    <!-- 
+    NOTE: To use actual protest rally images from All India Agricultural Workers' Union:
+    1. Place your images in an 'images' folder (e.g., images/rally1.jpg, images/rally2.jpg, etc.)
+    2. Replace the placeholder URLs in the body::before CSS (around line 60) with your image paths
+    3. Recommended: Use 6-8 images for the collage effect
+    4. Image dimensions: 500x400px or similar aspect ratio works well
+    -->
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXMMMRNT28"></script>
@@ -22,39 +30,130 @@
         }
 
         :root {
-            /* Agricultural Workers Union Color Palette */
+            /* All India Agricultural Workers' Union Color Palette */
+            --union-red: #c41e3a;
+            --union-red-light: #e63950;
+            --union-red-dark: #8b0e1f;
+            --union-gold: #ffd700;
+            --union-gold-light: #ffed4e;
             --primary-green: #2d5016;
             --primary-green-light: #4a7c2a;
             --primary-green-dark: #1a3009;
             --earth-brown: #8b6914;
             --earth-tan: #d4a574;
-            --union-red: #c41e3a;
-            --union-red-light: #e63950;
             --field-green: #6b8e23;
             --field-green-light: #9acd32;
             --soil-brown: #8b7355;
+            --white: #ffffff;
+            --off-white: #f8f9fa;
             
-            --primary-gradient: linear-gradient(135deg, #2d5016 0%, #4a7c2a 50%, #6b8e23 100%);
-            --secondary-gradient: linear-gradient(135deg, #c41e3a 0%, #e63950 100%);
+            --union-gradient: linear-gradient(135deg, #c41e3a 0%, #e63950 50%, #ff6b6b 100%);
+            --primary-gradient: linear-gradient(135deg, #c41e3a 0%, #e63950 100%);
+            --secondary-gradient: linear-gradient(135deg, #2d5016 0%, #4a7c2a 50%, #6b8e23 100%);
             --earth-gradient: linear-gradient(135deg, #8b6914 0%, #d4a574 100%);
             --field-gradient: linear-gradient(135deg, #4a7c2a 0%, #9acd32 100%);
             --warning-gradient: linear-gradient(135deg, #d4a574 0%, #f4a460 100%);
             --success-gradient: linear-gradient(135deg, #2d5016 0%, #6b8e23 100%);
             
-            --shadow-sm: 0 2px 8px rgba(45, 80, 22, 0.15);
-            --shadow-md: 0 4px 16px rgba(45, 80, 22, 0.2);
-            --shadow-lg: 0 8px 32px rgba(45, 80, 22, 0.25);
-            --shadow-xl: 0 12px 48px rgba(45, 80, 22, 0.3);
+            --shadow-sm: 0 2px 8px rgba(196, 30, 58, 0.15);
+            --shadow-md: 0 4px 16px rgba(196, 30, 58, 0.2);
+            --shadow-lg: 0 8px 32px rgba(196, 30, 58, 0.25);
+            --shadow-xl: 0 12px 48px rgba(196, 30, 58, 0.3);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.7;
             color: #2d3748;
-            background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 30%, #6b8e23 60%, #8b6914 100%);
-            background-attachment: fixed;
             min-height: 100vh;
             padding: 20px 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Background Image Collage Container for Auto-Scrolling */
+        .background-collage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .collage-row {
+            display: flex;
+            width: 200%;
+            height: 50%;
+            animation: scrollHorizontal 40s linear infinite;
+        }
+
+        .collage-row.reverse {
+            animation: scrollHorizontalReverse 45s linear infinite;
+        }
+
+        .collage-image {
+            flex: 0 0 25%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(20%) contrast(1.1) brightness(0.85);
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        /* First row - images 1-4, then duplicate for seamless infinite scroll */
+        .collage-row:first-child .collage-image:nth-child(1) { background-image: url('assets/image_1.png'); }
+        .collage-row:first-child .collage-image:nth-child(2) { background-image: url('assets/image_2.png'); }
+        .collage-row:first-child .collage-image:nth-child(3) { background-image: url('assets/image_3.png'); }
+        .collage-row:first-child .collage-image:nth-child(4) { background-image: url('assets/image_4.png'); }
+        .collage-row:first-child .collage-image:nth-child(5) { background-image: url('assets/image_1.png'); }
+        .collage-row:first-child .collage-image:nth-child(6) { background-image: url('assets/image_2.png'); }
+        .collage-row:first-child .collage-image:nth-child(7) { background-image: url('assets/image_3.png'); }
+        .collage-row:first-child .collage-image:nth-child(8) { background-image: url('assets/image_4.png'); }
+
+        /* Second row (reverse scroll) - images 5-8, then duplicate for seamless infinite scroll */
+        .collage-row.reverse .collage-image:nth-child(1) { background-image: url('assets/image_5.png'); }
+        .collage-row.reverse .collage-image:nth-child(2) { background-image: url('assets/image_6.png'); }
+        .collage-row.reverse .collage-image:nth-child(3) { background-image: url('assets/image_7.png'); }
+        .collage-row.reverse .collage-image:nth-child(4) { background-image: url('assets/image_8.png'); }
+        .collage-row.reverse .collage-image:nth-child(5) { background-image: url('assets/image_5.png'); }
+        .collage-row.reverse .collage-image:nth-child(6) { background-image: url('assets/image_6.png'); }
+        .collage-row.reverse .collage-image:nth-child(7) { background-image: url('assets/image_7.png'); }
+        .collage-row.reverse .collage-image:nth-child(8) { background-image: url('assets/image_8.png'); }
+
+        @keyframes scrollHorizontal {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes scrollHorizontalReverse {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Union-themed overlay gradient for better text readability */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                linear-gradient(135deg, rgba(196, 30, 58, 0.7) 0%, rgba(45, 80, 22, 0.6) 50%, rgba(196, 30, 58, 0.7) 100%),
+                radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.15) 100%);
+            pointer-events: none;
         }
 
         .container {
@@ -72,7 +171,22 @@
             text-align: center;
             backdrop-filter: blur(10px);
             animation: fadeInDown 0.6s ease-out;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 3px solid var(--union-red);
+            position: relative;
+        }
+
+        .union-badge {
+            display: inline-block;
+            background: var(--union-gradient);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.4);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         @keyframes fadeInDown {
@@ -87,7 +201,7 @@
         }
 
         h1 {
-            background: var(--primary-gradient);
+            background: var(--union-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -95,6 +209,7 @@
             font-size: clamp(2em, 5vw, 3em);
             font-weight: 800;
             letter-spacing: -0.02em;
+            text-shadow: 0 2px 4px rgba(196, 30, 58, 0.1);
         }
 
         header p {
@@ -105,7 +220,7 @@
         }
 
         .support-btn {
-            background: var(--secondary-gradient);
+            background: var(--union-gradient);
             color: white;
             border: none;
             padding: 18px 50px;
@@ -114,9 +229,10 @@
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 700;
-            box-shadow: 0 8px 24px rgba(196, 30, 58, 0.4);
+            box-shadow: 0 8px 24px rgba(196, 30, 58, 0.5);
             position: relative;
             overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .support-btn::before {
@@ -174,7 +290,7 @@
         }
 
         .content-section h2 {
-            background: var(--primary-gradient);
+            background: var(--union-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -182,14 +298,14 @@
             font-size: clamp(1.8em, 4vw, 2.5em);
             font-weight: 700;
             border-bottom: 4px solid;
-            border-image: var(--primary-gradient) 1;
+            border-image: var(--union-gradient) 1;
             padding-bottom: 15px;
         }
 
         .highlight {
-            background: linear-gradient(135deg, #f5f5dc 0%, #e8e8d8 100%);
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
             border-left: 5px solid;
-            border-image: var(--field-gradient) 1;
+            border-image: var(--union-gradient) 1;
             padding: 25px;
             margin: 25px 0;
             border-radius: 12px;
@@ -206,7 +322,7 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: var(--field-gradient);
+            background: var(--union-gradient);
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
@@ -221,7 +337,7 @@
         }
 
         .highlight h3 {
-            color: var(--primary-green-dark);
+            color: var(--union-red-dark);
             margin-bottom: 15px;
             font-size: 1.4em;
             font-weight: 700;
@@ -243,13 +359,13 @@
             content: '▸';
             position: absolute;
             left: 0;
-            color: var(--field-green);
+            color: var(--union-red);
             font-weight: bold;
         }
 
         .highlight p {
             line-height: 1.8;
-            color: var(--primary-green-dark);
+            color: var(--union-red-dark);
         }
 
         .language-toggle {
@@ -280,7 +396,7 @@
         }
 
         .lang-btn.active {
-            background: var(--primary-gradient);
+            background: var(--union-gradient);
             color: white;
             box-shadow: var(--shadow-md);
             transform: scale(1.02);
@@ -400,7 +516,7 @@
         .submit-btn {
             width: 100%;
             padding: 18px;
-            background: var(--primary-gradient);
+            background: var(--union-gradient);
             color: white;
             border: none;
             border-radius: 12px;
@@ -408,13 +524,13 @@
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 700;
-            box-shadow: 0 6px 20px rgba(45, 80, 22, 0.4);
+            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.4);
             margin-top: 10px;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(45, 80, 22, 0.5);
+            box-shadow: 0 8px 28px rgba(196, 30, 58, 0.5);
         }
 
         .submit-btn:active {
@@ -476,11 +592,39 @@
     </style>
 </head>
 <body>
+    <!-- Auto-scrolling Background Collage -->
+    <div class="background-collage">
+        <div class="collage-row">
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+        </div>
+        <div class="collage-row reverse">
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+        </div>
+    </div>
+
     <div class="container">
         <header>
+            <div class="union-badge">Organized by All India Agricultural Workers' Union</div>
             <h1>🌾 Support MGNREGA Restoration 🌾</h1>
-            <p style="font-size: 1.2em; color: #555; margin-bottom: 20px;">
+            <p style="font-size: 1.2em; color: #555; margin-bottom: 10px;">
                 Stand with 26.57 Crore Workers to Restore and Enrich MGNREGA
+            </p>
+            <p style="font-size: 1em; color: var(--union-red); font-weight: 600; margin-bottom: 20px;">
+                All India Agricultural Workers' Union Campaign
             </p>
             <button class="support-btn" onclick="openForm()"><span>✉️ Support</span></button>
         </header>
