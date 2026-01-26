@@ -85,7 +85,7 @@
         .collage-row {
             display: flex;
             width: 200%;
-            height: 50%;
+            height: 33.33%;
             animation: scrollHorizontal 40s linear infinite;
         }
 
@@ -93,8 +93,11 @@
             animation: scrollHorizontalReverse 45s linear infinite;
         }
 
+        .collage-row.third {
+            animation: scrollHorizontal 50s linear infinite;
+        }
+
         .collage-image {
-            flex: 0 0 25%;
             height: 100%;
             background-size: cover;
             background-position: center;
@@ -103,25 +106,50 @@
             transition: opacity 0.3s ease;
         }
 
-        /* First row - images 1-4, then duplicate for seamless infinite scroll */
-        .collage-row:first-child .collage-image:nth-child(1) { background-image: url('assets/image_1.png'); }
-        .collage-row:first-child .collage-image:nth-child(2) { background-image: url('assets/image_2.png'); }
-        .collage-row:first-child .collage-image:nth-child(3) { background-image: url('assets/image_3.png'); }
-        .collage-row:first-child .collage-image:nth-child(4) { background-image: url('assets/image_4.png'); }
-        .collage-row:first-child .collage-image:nth-child(5) { background-image: url('assets/image_1.png'); }
-        .collage-row:first-child .collage-image:nth-child(6) { background-image: url('assets/image_2.png'); }
-        .collage-row:first-child .collage-image:nth-child(7) { background-image: url('assets/image_3.png'); }
-        .collage-row:first-child .collage-image:nth-child(8) { background-image: url('assets/image_4.png'); }
+        /* First row - images 1-5, each 20% width, then duplicate for seamless infinite scroll */
+        .collage-row:first-child .collage-image {
+            flex: 0 0 20%;
+        }
+        .collage-row:first-child .collage-image:nth-child(1) { background-image: url('assets/background/image_1.png'); }
+        .collage-row:first-child .collage-image:nth-child(2) { background-image: url('assets/background/image_2.png'); }
+        .collage-row:first-child .collage-image:nth-child(3) { background-image: url('assets/background/image_3.png'); }
+        .collage-row:first-child .collage-image:nth-child(4) { background-image: url('assets/background/image_4.png'); }
+        .collage-row:first-child .collage-image:nth-child(5) { background-image: url('assets/background/image_5.png'); }
+        .collage-row:first-child .collage-image:nth-child(6) { background-image: url('assets/background/image_1.png'); }
+        .collage-row:first-child .collage-image:nth-child(7) { background-image: url('assets/background/image_2.png'); }
+        .collage-row:first-child .collage-image:nth-child(8) { background-image: url('assets/background/image_3.png'); }
+        .collage-row:first-child .collage-image:nth-child(9) { background-image: url('assets/background/image_4.png'); }
+        .collage-row:first-child .collage-image:nth-child(10) { background-image: url('assets/background/image_5.png'); }
 
-        /* Second row (reverse scroll) - images 5-8, then duplicate for seamless infinite scroll */
-        .collage-row.reverse .collage-image:nth-child(1) { background-image: url('assets/image_5.png'); }
-        .collage-row.reverse .collage-image:nth-child(2) { background-image: url('assets/image_6.png'); }
-        .collage-row.reverse .collage-image:nth-child(3) { background-image: url('assets/image_7.png'); }
-        .collage-row.reverse .collage-image:nth-child(4) { background-image: url('assets/image_8.png'); }
-        .collage-row.reverse .collage-image:nth-child(5) { background-image: url('assets/image_5.png'); }
-        .collage-row.reverse .collage-image:nth-child(6) { background-image: url('assets/image_6.png'); }
-        .collage-row.reverse .collage-image:nth-child(7) { background-image: url('assets/image_7.png'); }
-        .collage-row.reverse .collage-image:nth-child(8) { background-image: url('assets/image_8.png'); }
+        /* Second row (reverse scroll) - images 6-10, each 20% width, then duplicate for seamless infinite scroll */
+        .collage-row.reverse .collage-image {
+            flex: 0 0 20%;
+        }
+        .collage-row.reverse .collage-image:nth-child(1) { background-image: url('assets/background/image_6.png'); }
+        .collage-row.reverse .collage-image:nth-child(2) { background-image: url('assets/background/image_7.png'); }
+        .collage-row.reverse .collage-image:nth-child(3) { background-image: url('assets/background/image_8.png'); }
+        .collage-row.reverse .collage-image:nth-child(4) { background-image: url('assets/background/image_9.png'); }
+        .collage-row.reverse .collage-image:nth-child(5) { background-image: url('assets/background/image_10.png'); }
+        .collage-row.reverse .collage-image:nth-child(6) { background-image: url('assets/background/image_6.png'); }
+        .collage-row.reverse .collage-image:nth-child(7) { background-image: url('assets/background/image_7.png'); }
+        .collage-row.reverse .collage-image:nth-child(8) { background-image: url('assets/background/image_8.png'); }
+        .collage-row.reverse .collage-image:nth-child(9) { background-image: url('assets/background/image_9.png'); }
+        .collage-row.reverse .collage-image:nth-child(10) { background-image: url('assets/background/image_10.png'); }
+
+        /* Third row - images 11-15, each 20% width, then duplicate for seamless infinite scroll */
+        .collage-row.third .collage-image {
+            flex: 0 0 20%;
+        }
+        .collage-row.third .collage-image:nth-child(1) { background-image: url('assets/background/image_11.png'); }
+        .collage-row.third .collage-image:nth-child(2) { background-image: url('assets/background/image_12.png'); }
+        .collage-row.third .collage-image:nth-child(3) { background-image: url('assets/background/image_13.png'); }
+        .collage-row.third .collage-image:nth-child(4) { background-image: url('assets/background/image_14.png'); }
+        .collage-row.third .collage-image:nth-child(5) { background-image: url('assets/background/image_15.png'); }
+        .collage-row.third .collage-image:nth-child(6) { background-image: url('assets/background/image_11.png'); }
+        .collage-row.third .collage-image:nth-child(7) { background-image: url('assets/background/image_12.png'); }
+        .collage-row.third .collage-image:nth-child(8) { background-image: url('assets/background/image_13.png'); }
+        .collage-row.third .collage-image:nth-child(9) { background-image: url('assets/background/image_14.png'); }
+        .collage-row.third .collage-image:nth-child(10) { background-image: url('assets/background/image_15.png'); }
 
         @keyframes scrollHorizontal {
             0% {
@@ -173,6 +201,9 @@
             animation: fadeInDown 0.6s ease-out;
             border: 3px solid var(--union-red);
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .union-badge {
@@ -187,6 +218,49 @@
             box-shadow: 0 4px 12px rgba(196, 30, 58, 0.4);
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .union-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(196, 30, 58, 0.5);
+        }
+
+        .union-badge:active {
+            transform: translateY(0);
+        }
+
+
+
+        footer {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+            box-shadow: var(--shadow-xl);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        footer p {
+            margin: 10px 0;
+            color: #4a5568;
+            font-size: 1em;
+        }
+
+        footer a {
+            color: var(--union-red);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        footer a:hover {
+            color: var(--union-red-dark);
+            border-bottom-color: var(--union-red);
         }
 
         @keyframes fadeInDown {
@@ -603,8 +677,24 @@
             <div class="collage-image"></div>
             <div class="collage-image"></div>
             <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
         </div>
         <div class="collage-row reverse">
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
+        </div>
+        <div class="collage-row third">
+            <div class="collage-image"></div>
+            <div class="collage-image"></div>
             <div class="collage-image"></div>
             <div class="collage-image"></div>
             <div class="collage-image"></div>
@@ -618,7 +708,7 @@
 
     <div class="container">
         <header>
-            <div class="union-badge">Organized by All India Agricultural Workers' Union</div>
+            <a href="http://aiawu.in/" target="_blank" rel="noopener noreferrer" class="union-badge">Organized by All India Agricultural Workers' Union</a>
             <h1>🌾 Support MGNREGA Restoration 🌾</h1>
             <p style="font-size: 1.2em; color: #555; margin-bottom: 10px;">
                 Stand with 26.57 Crore Workers to Restore and Enrich MGNREGA
@@ -636,73 +726,80 @@
             </div>
 
             <div id="english-content" class="lang-content active">
-                <h2>Draft Resolution to Demand Restore and Enrich MGNREGA</h2>
+                <h2>Oppose dismantling Mahatma Gandhi National Rural Employment Guarantee Act (MNREGA) — Withdraw the New VB-GRAM G Scheme!</h2>
                 
                 <div class="highlight">
-                    <h3>📋 Key Concerns</h3>
-                    <p><strong>We reject VB-GRAMG Act!</strong> It denies the legal right to work guaranteed to all rural families seeking employment under MGNREG Act.</p>
+                    <p>The Modi government has introduced a new scheme called VB-GRAM G to effectively abolish MGNREGA by removing Mahatma Gandhi's name and dismantling the law that declared 100 days of work as a legal right of the people. This policy of the Modi government is a cruel attack on the lives and livelihoods of the agricultural workers and rural poor. We unequivocally oppose the withdrawal of MNREGA and the new VB-G RAM G scheme.</p>
+                    <p>We, the working people of India, strongly oppose the decision to dismantle the Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA). In its place, the Modi government has introduced a scheme called VB-GRAM G, which contains several deeply harmful provisions.</p>
                 </div>
 
                 <div class="highlight">
-                    <h3>⚠️ Critical Issues</h3>
                     <ul>
-                        <li><strong>Demand-Driven to Supply-Driven:</strong> VB-GRAMG changes the fundamental principle from demand-driven funding to a centralized supply-driven system with predetermined budgets.</li>
-                        <li><strong>Budget Limitations:</strong> Once budget funds are exhausted, workers' legal right to work will be denied.</li>
-                        <li><strong>State Burden:</strong> States must bear 40% of total costs, severely impacting poorer states and reducing job opportunities in high-need areas.</li>
-                        <li><strong>Agricultural Season Restrictions:</strong> Mandatory 60-day halt during peak agricultural periods forces landless agricultural workers into low-wage private employment.</li>
-                        <li><strong>Wage Floor Removal:</strong> The year-round "wage floor" protection provided by MGNREGA is eliminated, attacking workers' legal rights and bargaining power.</li>
-                        <li><strong>Centralization:</strong> Powers are concentrated in the hands of the central government, violating federal principles.</li>
-                        <li><strong>Removal of Mahatma Gandhi's Name:</strong> This disrespects the legacy of the freedom struggle and the historic MGNREGA Act of 2005.</li>
+                        <li><strong>Replacing a law that guarantees employment on demand with a scheme under which people can work only if the government chooses to provide work is an anti-people move.</strong> Rural employment must be generated according to the needs of workers living in India's villages. The Union Government must increase the employment allocations accordingly. Restricting employment to a pre-determined financial ceiling and centralising all powers in the Union Government is unacceptable.</li>
+                        <li><strong>Under the new VB-GRAM G scheme, once the financial limit fixed by the Union Government is exhausted, the statutory right to employment guaranteed under MGNREGA will be denied.</strong> This situation is extremely harmful, and runs the risk of withdrawing from guaranteeing employment opportunities.</li>
+                        <li><strong>Rural employment guarantee must remain the full responsibility of the Union Government.</strong> The new rule that forces State Governments to bear 40% of the project cost will further weaken already financially stressed states. This will inevitably reduce rural employment opportunities.</li>
+                        <li><strong>The government's withdrawal from guaranteeing work during the agricultural season — through the compulsory 60-day work suspension rule — will push landless agricultural labourers into distress and force them to accept lower wages.</strong> During droughts and other unforeseen crises, they will be left without even minimal relief.</li>
+                        <li><strong>The fixing of minimum wages was a key legal protection provided by MGNREGA.</strong> By removing this safeguard, the Modi government is destroying workers' statutory right to minimum wages and their collective bargaining power.</li>
+                        <li><strong>The concentration of all authority in the hands of the Union Government is against the basic principles of federalism.</strong></li>
+                        <li><strong>Further, removing Mahatma Gandhi's name from the scheme erases its historical legacy and insults the values of India's freedom struggle.</strong></li>
                     </ul>
                 </div>
 
                 <div class="highlight">
-                    <h3>✅ Our Demands</h3>
+                    <p>Therefore, we demand that the Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA) be reinstated and strengthened. Further, we additionally demand the following provisions:</p>
                     <ul>
-                        <li>Increase work days to 200 days</li>
-                        <li>Set minimum wage at ₹700 per day</li>
-                        <li>Ensure daily or weekly wage payments without delay</li>
-                        <li>Grant village assembly authority for monitoring and planning</li>
+                        <li>Increase guaranteed workdays to 200 days per year</li>
+                        <li>Fix the minimum daily wage at ₹700</li>
+                        <li>Ensure daily wages are paid without delay</li>
+                        <li>Empower Gram Sabhas to plan, supervise, and monitor the programme</li>
                         <li>Integrate MGNREGA with agriculture and allied sectors</li>
-                        <li>End agricultural crisis, rural debt, forced migration, and farmer suicides</li>
+                        <li>Implement the Act as a genuine solution to the agrarian crisis, rural indebtedness, distress migration in search of livelihoods, and agricultural labour' suicides</li>
                     </ul>
+                    <p>We urge the Government of India to immediately withdraw the VB-GRAM G scheme and protect and expand MGNREGA in the interest of India's rural workers.</p>
                 </div>
             </div>
 
             <div id="tamil-content" class="lang-content tamil-text">
-                <h2>MGNREGA-வை மீட்டெடுத்து வலுப்படுத்த வலியுறுத்தும் தீர்மான வரைவு</h2>
+                <h2>மகாத்மா காந்தி, ஊரக வேலைவாய்ப்பு உறுதிச் சட்டத்தை அழிக்காதே, புதிய விபி ஜிராம்ஜி சட்டத்தை திரும்பப் பெற்றிடு !</h2>
                 
                 <div class="highlight">
-                    <h3>📋 முக்கிய கவலைகள்</h3>
-                    <p><strong>VB-GRAMG சட்டத்தை நாங்கள் நிராகரிக்கிறோம்!</strong> MGNREG Act-ல் உறுதி செய்யப்பட்டுள்ள "வேலை கோரும் அனைத்து ஊரக குடும்பங்களுக்கும் சட்டபூர்வமான வேலை உரிமை" என்பதை இது மறுக்கிறது.</p>
+                    <p>மகாத்மா காந்தியின் பெயரை நீக்கியதுடன், 100 நாள் வேலையை மக்களின் உரிமையாக அறிவித்த சட்டத்தை அகற்றி அதை ஒழிப்பதற்காக விபி ஜிராம்ஜி என்ற திட்டம் கொண்டுவரப்பட்டுள்ளது. மோடி அரசின் இந்த கொள்கை, சாதாரண ஏழை எளிய மக்களின் வயிற்றிலடிக்கும் நயவஞ்சகம் ஆகும். இதனை நாங்கள் முற்றாக எதிர்க்கிறோம்.</p>
+                    <p>இந்திய நாட்டின் உழைப்பாளி மக்களாகிய நாங்கள் மகாத்மா காந்தி ஊரக வேலைவாய்ப்பு உறுதி சட்டத்தை அழிக்கும் முடிவை முற்றாக எதிர்க்கிறோம். அதற்கு பதிலாக, மோடி அரசாங்கம் நிறைவேற்றியுள்ள விபி ஜிராம்ஜி என்ற திட்டம் பல்வேறு மோசமான அம்சங்களை கொண்டுள்ளது.</p>
                 </div>
 
                 <div class="highlight">
-                    <h3>⚠️ முக்கியமான பிரச்சனைகள்</h3>
                     <ul>
-                        <li><strong>தேவை-ஆதார முதல் வழங்கல்-ஆதார:</strong> VB-GRAMG தேவைக்கேற்ப நிதி ஒதுக்கப்படும் அடிப்படை கோட்பாட்டை முன் நிர்ணயிக்கப்பட்ட பட்ஜெட்டுடன் மையப்படுத்தப்பட்ட வழங்கல்-ஆதார முறைக்கு மாற்றுகிறது.</li>
-                        <li><strong>பட்ஜெட் வரம்புகள்:</strong> பட்ஜெட் நிதி முடிந்தவுடன் தொழிலாளர்களின் சட்டபூர்வமான வேலை உரிமை மறுக்கப்படும்.</li>
-                        <li><strong>மாநில சுமை:</strong> மாநிலங்கள் மொத்த செலவின் 40%-ஐ ஏற்க வேண்டும், இது ஏழை மாநிலங்களில் கடுமையான தாக்கத்தை ஏற்படுத்தி, அதிக தேவை உள்ள பகுதிகளில் வேலை வாய்ப்புகளை குறைக்கிறது.</li>
-                        <li><strong>வேளாண் கால கட்டுப்பாடுகள்:</strong> உச்ச வேளாண் காலங்களில் 60 நாட்கள் கட்டாய நிறுத்தம் நிலமற்ற விவசாயத் தொழிலாளர்களை குறைந்த கூலியில் தனியார் வேலைக்கு தள்ளுகிறது.</li>
-                        <li><strong>கூலி அடித்தளம் நீக்கம்:</strong> ஆண்டு முழுவதும் MGNREGA வழங்கிய "கூலி அடித்தளம்" பாதுகாப்பு நீக்கப்படுகிறது.</li>
-                        <li><strong>மையப்படுத்தல்:</strong> அதிகாரங்கள் மத்திய அரசின் கைகளில் குவிகின்றன, கூட்டாட்சித் தன்மைக்கு எதிரானது.</li>
-                        <li><strong>மகாத்மா காந்தியின் பெயர் நீக்கம்:</strong> சுதந்திரப் போராட்டத்தின் பாரம்பரியத்திற்கும் 2005 ஆம் ஆண்டு MGNREGA சட்டத்தின் பாரம்பரியத்திற்கும் அவமதிப்பு.</li>
+                        <li><strong>தேவைக்கு ஏற்ப வேலைவாய்ப்பை உருவாக்கும் சட்டம் அகற்றப்பட்டு, அரசே கொடுத்தால் மட்டும் வேலை செய்யலாம் என்ற திட்டமாக மாற்றுவது மக்களுக்கு எதிரான முடிவாகும்.</strong> இந்திய கிராமங்களில் வாழும் உழைப்பாளிகளின் தேவைக்கு ஏற்ப ஊரக வேலை வாய்ப்பு உருவாக்கப்பட வேண்டும். அதற்கேற்ப நிதியை ஒன்றிய அரசு உயர்த்த வேண்டும். ஆனால், முன்கூட்டியே தீர்மானித்த நிதி வரம்பிற்குள் மட்டுமே வேலை கொடுப்பது, அதிகாரத்தை ஒன்றியத்தில் குவித்துக் கொள்வது ஏற்க முடியாத ஒன்றாகும்.</li>
+                        <li><strong>புதிய விபி ஜிராம்ஜி திட்டத்தின்படி, ஒன்றிய அரசு தீர்மானித்த நிதி நிதி செலவாகிவிட்டால், வேலை உறுதிச் சட்டத்தால் வழங்கப்பட்ட உரிமை மறுக்கப்படும் நிலைமை மிக மிக பாதகமானது.</strong></li>
+                        <li><strong>ஊரக வேலை உறுதிக்காக ஒன்றிய அரசே முழுமையாக பொருப்பேற்க வேண்டும்.</strong> திட்டச் செலவில்  மாநில அரசுகள் 40% ஏற்க வேண்டும் என்ற புதிய சட்டம், ஏற்கனவே நிதிச் சுமையில் உள்ள மாநிலங்களை மேலும் பலவீனமாக்கும். இதனாலும் ஊரக வேலைவாய்ப்புகள் குறைந்துவிடும்.</li>
+                        <li><strong>விவசாய சாகுபடி காலத்தில் வேலை உறுதி செய்வதில் இருந்து அரசு விலகுவது -  60 நாட்கள் திட்டம் கட்டாயமாக நிறுத்திவைக்கும் விதிமுறையானது - நிலமில்லாத விவசாயத் தொழிலாளர்களைக் குறைவான கூலிக்கு வேலைசெய்யும் கட்டாய நிலைமைக்குத் தள்ளிவிடும்.</strong> வறட்சி உள்ளிட்ட எதிர்பாராத பாதிப்புகளின் போது அவர்களை சிறு நிவாரணத்திற்கு கூட வழியற்றவர்களாக்கிவிடும்.</li>
+                        <li><strong>குறைந்தபட்சக் கூலி தீர்மானிப்பது மகாத்மா காந்தி தேசிய ஊரக வேலைவாய்ப்புச் சட்டத்தால் கிடைத்துவந்த பாதுகாப்பு ஆகும்.</strong> அதனை நீக்குவதன் மூலம் தொழிலாளர்களின் சட்டப்பூர்வ குறைந்தபட்சக் கூலி உரிமையையும், கூட்டுப்பேர உரிமையையும் மோடி அரசு சிதைக்கிறது.</li>
+                        <li><strong>மத்திய அரசின் கைகளில் அதிகாரம் அனைத்தும் குவிக்கப்படுவது கூட்டாட்சிக் கோட்பாட்டிற்கு எதிரானதாகும்.</strong></li>
+                        <li><strong>மேலும், இந்த திட்டத்தில் மகாத்மா காந்தியின் பெயரை நீக்குவது, இந்த சட்டம் அமலாக்கப்பட்ட வரலாற்று பாரம்பரியத்தை அழிப்பதுடன். விடுதலைப் போராட்டத்தின் வரலாற்று மரபினையும் அவமதிக்கிறது.</strong></li>
                     </ul>
                 </div>
 
                 <div class="highlight">
-                    <h3>✅ எங்கள் கோரிக்கைகள்</h3>
+                    <p>எனவே நாங்கள், மகாத்மா காந்தி, ஊரக வேலைவாய்ப்பு உறுதிச் சட்டத்தை தொடர வேண்டும் என்று கோருகிறோம். மேலும், இந்த சட்டத்தை விரிவாக்கி...</p>
                     <ul>
-                        <li>வேலை நாட்களை 200 நாட்களாக உயர்த்துதல்</li>
-                        <li>குறைந்தபட்ச கூலி நாளுக்கு ரூ.700-க்கு குறையாமல் நிர்ணயித்தல்</li>
-                        <li>தாமதமின்றி தினசரி அல்லது வாராந்திர கூலி வழங்கல்</li>
-                        <li>கிராம சபைக்கு கண்காணிப்பு மற்றும் திட்டமிடலுக்கான அதிகாரம்</li>
-                        <li>வேளாண்மை மற்றும் அதனுடன் இணைந்த துறைகளுடன் MGNREGA ஐ இணைத்தல்</li>
-                        <li>வேளாண் நெருக்கடி, ஊரக கடன்பாடு, கட்டாய இடம்பெயர்வு மற்றும் விவசாயி தற்கொலைகளை முடிவுக்கு கொண்டு வருதல்</li>
+                        <li>வேலைநாட்களை 200 நாட்களாக அதிகரிக்க வேண்டும்</li>
+                        <li>நாளொன்றிற்கு குறைந்தபட்சக் கூலியை 700 ரூபாயாக நிர்ணயிக்க வேண்டும்</li>
+                        <li>தினசரி கூலியைக் கால தாமதமின்றி வழங்க வேண்டும்</li>
+                        <li>இந்த திட்ட செயல்பாட்டை மேற்பார்வையிடவும், திட்டமிடவும், கிராம சபைக்கு அதிகாரம் வழங்க வேண்டும்</li>
+                        <li>மகாத்மா காந்தி ஊரக வேலைவாய்ப்பு உறுதிச் சட்டத்தை விவசாயம் மற்றும் விவசாயம் சார்ந்த துறையோடு ஒருங்கிணைக்க வேண்டும்</li>
+                        <li>விவசாய நெருக்கடி, கிராமப்புற கடன்கள், பிழைப்புக்கான வாய்ப்பு தேடி கட்டாயத்தின் பேரில் குடிபெயர்தல், விவசாய தொழிலாளர்களிடையே அதிகரிக்கும் தற்கொலை ஆகிய பிரச்சனைகளுக்கு தீர்வு கொடுப்பதாக செயலாக்க வேண்டும் என கோருகிறோம்.</li>
                     </ul>
                 </div>
             </div>
         </div>
+
+        <footer>
+            <p><strong>All India Agricultural Workers' Union</strong></p>
+            <p>Visit our official website: <a href="http://aiawu.in/" target="_blank" rel="noopener noreferrer">aiawu.in</a></p>
+            <p style="font-size: 0.9em; color: #718096; margin-top: 15px;">
+                4, Ashoka Road, New Delhi - 110001 | Email: aiawu@bol.net.in
+            </p>
+        </footer>
     </div>
 
     <!-- Modal Form -->
